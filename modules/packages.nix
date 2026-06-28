@@ -10,6 +10,9 @@
     vlc
     ffmpeg
     ffmpegthumbnailer
+    pkgs.bottles
+    pkgs.wine
+    pkgs.protonplus
   ];
 
 
