@@ -2,7 +2,8 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, ... }:
+# 1. ADDED 'inputs' here so the module can read the vitasdk input passed from flake.nix
+{ config, pkgs, inputs, ... }:
 
 {
   imports =
@@ -10,6 +11,7 @@
       #./hardware-configuration.nix
       /etc/nixos/hardware-configuration.nix
       ./modules/default.nix
+			/etc/nixos/modules/trash.nix
     ];
 
   # Bootloader.
@@ -77,17 +79,22 @@
     description = "nixey";
     extraGroups = [ "networkmanager" "wheel" ];
     packages = with pkgs; [
-    #  thunderbird
+     thunderbird
     ];
   };
 
   # Install firefox.
   programs.firefox.enable = true;
-
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
+environment.variables = {
+		VITASDK = "${inputs.vitasdk.packages.${pkgs.system}.vitasdk}";
+	};
 
+environment.sessionVariables = {
+		VITASDK = "${inputs.vitasdk.packages.${pkgs.system}.vitasdk}";
+	};
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
@@ -98,15 +105,25 @@
     tmux
     fastfetch
     home-manager
+		/* zen-browser */
+		inputs.zen-browser.packages.${pkgs.stdenv.hostPlatform.system}.default
+
+    # 2. ADDED vitasdk here to make it available system-wide
+    inputs.vitasdk.packages.${pkgs.system}.vitasdk
   ];
+
+  # 3. ADDED an alias for an easy dev environment launcher
+  environment.shellAliases = {
+    vitashell = "nix shell github:sleirsgoevy/vitasdk.nix#vitasdk";
+  };
+
   nixpkgs.config.permittedInsecurePackages = [
     "electron-39.8.10" # Bitwarden
 
   ];
   programs.neovim = {
-  enable = true;
-  defaultEditor = true;
-
+    enable = true;
+    defaultEditor = true;
   };
 
   # Some programs need SUID wrappers, can be configured further or are
@@ -137,3 +154,4 @@
   system.stateVersion = "26.05"; # Did you read the comment?
 
 }
+

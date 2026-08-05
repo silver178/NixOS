@@ -7,12 +7,15 @@
     unzip # For extracting mason lsps, daps, etc
     pkgs.nerd-fonts.jetbrains-mono
     bitwarden-desktop
-    vlc
     ffmpeg
     ffmpegthumbnailer
     pkgs.bottles
     pkgs.wine
     pkgs.protonplus
+		pkgs.dotnet-sdk
+		emacsPackages.omnisharp
+		spicetify-cli
+		spotify
   ];
 
 
