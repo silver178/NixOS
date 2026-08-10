@@ -12,6 +12,7 @@
       /etc/nixos/hardware-configuration.nix
       ./modules/default.nix
 			/etc/nixos/modules/trash.nix
+			/etc/nixos/modules/desktops.nix
     ];
 
   # Bootloader.
@@ -42,8 +43,9 @@
   services.xserver.enable = true;
 
   # Enable the Pantheon Desktop Environment.
-  services.xserver.displayManager.lightdm.enable = true;
-  services.desktopManager.pantheon.enable = true;
+  #services.xserver.displayManager.lightdm.enable = true;
+  #services.desktopManager.pantheon.enable = true;
+	kde.enable = true;
 
   # Configure keymap in X11
   services.xserver.xkb = {
