@@ -17,7 +17,11 @@ bleedingEdgeMode
 		tree
 		tailscale
 		obsidian
+		chromium
+		searxng
 		];
+		services.searx.enable = true;
+		services.searx.environmentFile = "/etc/nixos/searx/secret.env";
 	};
 	
 }

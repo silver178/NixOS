@@ -13,7 +13,9 @@
       ./modules/default.nix
 			/etc/nixos/modules/trash.nix
 			/etc/nixos/modules/desktops.nix
+			/etc/nixos/modules/android-development.nix
     ];
+		android.enable = true;
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
