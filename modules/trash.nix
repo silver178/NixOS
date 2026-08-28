@@ -19,6 +19,10 @@ bleedingEdgeMode
 		obsidian
 		chromium
 		searxng
+		anytype
+		arduino
+		discord
+		vencord
 		];
 		services.searx.enable = true;
 		services.searx.environmentFile = "/etc/nixos/searx/secret.env";

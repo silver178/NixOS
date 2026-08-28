@@ -17,6 +17,7 @@
         kdePackages.oxygen
         ark
       ];
+			programs.kdeconnect.enable = true;
     })
 
     (lib.mkIf config.pantheon.enable {
