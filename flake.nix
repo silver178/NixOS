@@ -5,6 +5,7 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
 		zen-browser.url = "github:youwen5/zen-browser-flake";
+		snappy-switcher.url = "github:OpalAayan/snappy-switcher";
 
     # Add the vitasdk input here
     vitasdk.url = "github:sleirsgoevy/vitasdk.nix";

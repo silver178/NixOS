@@ -3,6 +3,7 @@
 {
   options.kde.enable = lib.mkEnableOption "enable KDE DE";
   options.pantheon.enable = lib.mkEnableOption "Enables the Pantheon environment";
+  options.hyprland.enable = lib.mkEnableOption "Enables Hyprland";
 
   config = lib.mkMerge [
     (lib.mkIf config.kde.enable {
@@ -24,6 +25,22 @@
       services.xserver.displayManager.lightdm.enable = true;
       services.desktopManager.pantheon.enable = true;
     })
+
+		(lib.mkIf config.hyprland.enable {
+			environment.systemPackages = with pkgs; [
+			hyprland
+			kitty
+			hyprlauncher
+			waybar
+			nemo
+			alacritty
+			rofi
+			kdePackages.dolphin
+			quickshell
+			];
+			programs.hyprland.enable = true;
+
+			})
   ];
 }
 

@@ -16,6 +16,14 @@
 		emacsPackages.omnisharp
 		spicetify-cli
 		spotify
+		ghostty
+		cmake
+		ninja
+		pkg-config
+		qt6.qt3d
+		qt6.qtbase
+		qt6.qttools
+
   ];
 
 

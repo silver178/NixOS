@@ -23,6 +23,12 @@ bleedingEdgeMode
 		arduino
 		discord
 		vencord
+		steam
+		libreoffice
+		reaper
+		halloy
+		tigervnc
+		quickshell
 		];
 		services.searx.enable = true;
 		services.searx.environmentFile = "/etc/nixos/searx/secret.env";

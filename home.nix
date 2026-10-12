@@ -22,13 +22,7 @@
     # # "Hello, world!" when run.
     # pkgs.hello
 
-  programs.git = {
-		enable = true;
-    user = {
-    name = "silver178";
-    email = "71855839+silver178@users.noreply.github.com"
-  };
-  };
+  
     # # It is sometimes useful to fine-tune packages, for example, by applying
     # # overrides. You can do that directly here, just don't forget the
     # # parentheses. Maybe you want to install Nerd Fonts with a limited number of
@@ -46,6 +40,11 @@
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
   # plain files is through 'home.file'.
   home.file = {
+		"/home/nixey/.config/halloy/config.toml".source = "/home/nixey/dotfiles/halloy/config.toml";
+		"/home/nixey/.config/halloy/themes/".source = "/home/nixey/dotfiles/halloy/themes/";
+		#".config/hypr".source = "/home/nixey/dotfiles/hyprland/hypr";
+		#".config/halloy".source = "~/dotfiles/halloy/";
+		#xdg.configFile."halloy".source = config.lib.mkOutOfStoreSymlink "/home/nixey/dotfiles/halloy/";
     # # Building this configuration will create a copy of 'dotfiles/screenrc' in
     # # the Nix store. Activating the configuration will then make '~/.screenrc' a
     # # symlink to the Nix store copy.
@@ -76,6 +75,7 @@
   #
   home.sessionVariables = {
     # EDITOR = "emacs";
+		EDITOR = "nvim";
 
   };
 

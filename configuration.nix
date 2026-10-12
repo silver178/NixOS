@@ -16,6 +16,7 @@
 			/etc/nixos/modules/android-development.nix
     ];
 		android.enable = true;
+		programs.steam.enable = true;
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
@@ -47,7 +48,8 @@
   # Enable the Pantheon Desktop Environment.
   #services.xserver.displayManager.lightdm.enable = true;
   #services.desktopManager.pantheon.enable = true;
-	kde.enable = true;
+	#kde.enable = true;
+	hyprland.enable = true;
 
   # Configure keymap in X11
   services.xserver.xkb = {
@@ -109,8 +111,11 @@ environment.sessionVariables = {
     tmux
     fastfetch
     home-manager
+		pavucontrol
 		/* zen-browser */
 		inputs.zen-browser.packages.${pkgs.stdenv.hostPlatform.system}.default
+		inputs.snappy-switcher.packages.${pkgs.system}.default
+
 
     # 2. ADDED vitasdk here to make it available system-wide
     inputs.vitasdk.packages.${pkgs.system}.vitasdk
