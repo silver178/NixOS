@@ -8,12 +8,17 @@
 {
   imports =
     [ # Include the results of the hardware scan.
-      #./hardware-configuration.nix
-      /etc/nixos/hardware-configuration.nix
-      ./modules/default.nix
-			/etc/nixos/modules/trash.nix
-			/etc/nixos/modules/desktops.nix
-			/etc/nixos/modules/android-development.nix
+
+      #/etc/nixos/hardware-configuration.nix
+      ./hardware-configuration.nix
+      #/etc/nixos/modules/default.nix
+			./modules/default.nix
+			#/etc/nixos/modules/trash.nix
+			./modules/trash.nix
+			#/etc/nixos/modules/desktops.nix
+			./modules/desktops.nix
+			#/etc/nixos/modules/android-development.nix
+			./modules/android-development.nix
     ];
 		android.enable = true;
 		programs.steam.enable = true;
